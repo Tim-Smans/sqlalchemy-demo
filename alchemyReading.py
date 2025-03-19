@@ -15,4 +15,4 @@ session = Session()
 # Query: Getting al attendances from a specific student.
 student = session.query(Student).filter_by(student_id="12345").first()
 for attendance in student.attendances:
-    print(attendance.timestamp, attendance.room)
+    print("- Id:", attendance.id , "Timestamp: ", attendance.timestamp, "Room: ", attendance.room)
