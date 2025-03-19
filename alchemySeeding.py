@@ -2,9 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 
-from models.attendance import Attendance, Base as AttendanceBase
-from models.student import Student, Base as StudentBase
 
+from models.base import Base
+from models.student import Student
+from models.attendance import Attendance
 
 engine = create_engine(
     "postgresql+pg8000://postgres:postgresPassword@localhost:5432/postgres"
@@ -13,8 +14,7 @@ engine = create_engine(
 
 
 # Creating the tables
-AttendanceBase.metadata.create_all(engine)
-StudentBase.metadata.create_all(engine)
+Base.metadata.create_all(engine)
 
 
 # Creating Session
@@ -38,4 +38,4 @@ new_record = Attendance(
 session.add(new_record)
 session.commit()
 
-print("Added attendance!")
+print("Added attendance and student!")

@@ -1,8 +1,6 @@
-from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-
-Base = declarative_base()
+from .base import Base  # Import the shared Base
 
 class Student(Base):
     __tablename__ = 'students'
@@ -10,7 +8,4 @@ class Student(Base):
     student_id = Column(String, primary_key=True)
     name = Column(String, nullable=False)
     
-    # One-to-many relationship
     attendances = relationship("Attendance", back_populates="student")
-
-

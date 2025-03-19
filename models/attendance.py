@@ -1,8 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-
-Base = declarative_base()
+from .base import Base  # Import same Base
 
 class Attendance(Base):
     __tablename__ = 'attendance'
@@ -12,5 +10,4 @@ class Attendance(Base):
     timestamp = Column(DateTime, nullable=False)
     room = Column(String, nullable=False)
 
-    # Many to one relationship
     student = relationship("Student", back_populates="attendances")

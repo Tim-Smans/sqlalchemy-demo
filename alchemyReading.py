@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from models.student import Student
+from models.attendance import Attendance
 
 engine = create_engine(
     "postgresql+pg8000://postgres:postgresPassword@localhost:5432/postgres"
