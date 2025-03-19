@@ -25,7 +25,6 @@ session = Session()
 new_record = Attendance(
     student_id="12345",
     timestamp=datetime.now(),
-    scanner_id="scanner_01",
     room="Room 101"
 )
 
